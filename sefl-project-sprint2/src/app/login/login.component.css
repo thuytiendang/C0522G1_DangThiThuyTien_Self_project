@@ -1,7 +1,5 @@
 section {
-  background-image:
-    url("https://i.pinimg.com/736x/f5/cf/35/f5cf352044b8190fd830e72f2385935c.jpg");
-  background-size: cover;
+  margin-top: 150px;
   position: relative;
   opacity: 0.9;
   overflow-x: hidden;
@@ -49,12 +47,12 @@ section .noi-dung .form {
 }
 
 section .noi-dung .form h2 {
-  color: #3fa2e1;
+  color: #e85181;
   font-weight: 500;
   font-size: 1.5em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  border-bottom: 4px solid #3fa2e1;
+  border-bottom: 4px solid #e85181;
   display: inline-block;
   letter-spacing: 1px;
 }
@@ -67,7 +65,7 @@ section .noi-dung .form .input-form span {
   font-size: 16px;
   margin-bottom: 5px;
   display: inline-block;
-  color: #607db8;
+  color: #e85181;
   letter-spacing: 1px;
 }
 
@@ -75,16 +73,16 @@ section .noi-dung .form .input-form input {
   width: 100%;
   padding: 10px 20px;
   outline: none;
-  border: 1px solid #607d8b;
+  border: 1px solid #e85181;
   font-size: 16px;
   letter-spacing: 1px;
-  color: #607d8b;
+  color: #e85181;
   background: transparent;
   border-radius: 30px;
 }
 
 section .noi-dung .form .input-form input[type="submit"] {
-  background: #3fa2e1;
+  background: #e85181;
   color: #fff;
   outline: none;
   border: none;
@@ -98,25 +96,25 @@ section .noi-dung .form .input-form input[type="submit"] {
 }
 
 section .noi-dung .form .input-form input[type="submit"]:hover {
-  background: #3fa2e1;
+  background: #e85181;
 }
 
 section .noi-dung .form .nho-dang-nhap {
   margin-bottom: 10px;
-  color: #607d8b;
+  color: #F195B2;
   font-size: 14px;
 }
 
 section .noi-dung .form .input-form p {
-  color: #607d8b;
+  color: #F195B2;
 }
 
 section .noi-dung .form .input-form p a {
-  color: #ec304d;
+  color: #0b2372;
 }
 
 section .noi-dung .form h3 {
-  color: #607d8b;
+  color: #F195B2;
   text-align: center;
   margin: 80px 0 10px;
   font-weight: 500;
@@ -190,4 +188,13 @@ section .noi-dung .form .icon-dang-nhap li {
 .social-icon:hover {
   color: #EC4969;
   border-color: #EC4969;
+}
+
+.btn-social {
+  width: 45px;
+  height: 45px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  border-radius: 45px;
 }
