@@ -1,14 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './login/login.component';
-import { DrinkComponent } from './drink/drink.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HomeComponent} from './component/home/home/home.component';
+import {HeaderComponent} from './component/header/header.component';
+import {FooterComponent} from './component/footer/footer.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {DrinkComponent} from './component/home/drink/drink.component';
+import {CartComponent} from './component/home/cart/cart.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DecentralizationModule} from './component/decentralization/decentralization.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,17 @@ import { DrinkComponent } from './drink/drink.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
-    DrinkComponent
+    DrinkComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DecentralizationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

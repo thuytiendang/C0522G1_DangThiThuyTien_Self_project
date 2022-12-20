@@ -4,19 +4,19 @@ use project_coffee_sprint_2;
 
 
 create table if not exists user(
-	username varchar(30) primary key,
+    username varchar(30) primary key,
     password varchar(200),
     is_delete bit default 0
 );
 
 create table  if not exists role(
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     name varchar(30),
     is_delete bit default 0
 );
 
 create table if not exists user_role(
-	username varchar(50),
+    username varchar(50),
     role_id int,
     is_delete bit default 0,
     foreign key(username) references user(username),
@@ -49,7 +49,6 @@ create table if not exists employee(
 	username varchar(30) unique,
 	id_card varchar(12),
 	day_of_birth varchar(30),
-	image varchar(500),
 	is_delete bit default 0,
 	foreign key (username) references user(username)
 );
@@ -64,11 +63,12 @@ create table if not exists drink(
 	id int primary key auto_increment,
 	name text,
         image text,
+        price int,
 	is_delete bit default 0,
         drink_type_id int,
 	foreign key(drink_type_id) references drink_type(id),
-        employee_id int,
-        foreign key (employee_id) references employee(id)
+        promotion_id int,
+	foreign key(promotion_id) references promotion(id)
 );
 
 
@@ -85,17 +85,12 @@ create table if not exists promotion(
 
 create table if not exists order(
 	id int primary key auto_increment,
-	name varchar(100),
 	is_delete bit default 0,
-	image text,
 	quantity int,
-        price int,
-        amount int,
+        date_payment DATETIME,	
         customer_id int,
         drink_id int,
         foreign key (customer_id) references customer(id),
-        foreign key (drink_id) references drink(id),
-        promotion_id int,
-        foreign key (promotion_id) references promotion(id)
+        foreign key (drink_id) references drink(id)     
 );
 
