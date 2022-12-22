@@ -14,13 +14,8 @@ import {AuthService} from '../../../service/auth.service';
 
 
 export class ForgotPasswordComponent implements OnInit {
-  formGroup!: FormGroup;
   formForgotPass!: FormGroup;
-  isSuccessful = false;
-  isSignUpFailed = false;
-  errorMessage = '';
   isSubmited = false;
-  formValid = false;
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
@@ -37,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'warning',
-      title: 'Đang xác nhận vui lòng đợi !',
+      title: 'Confirming please wait !',
       showConfirmButton: false,
       timer: 2000
     });
@@ -47,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Gữi email thành công !',
+            title: 'Email sent successfully!',
             showConfirmButton: false,
             timer: 1000
           });
@@ -56,7 +51,7 @@ export class ForgotPasswordComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'warning',
-            title: 'Gữi email thất bại, vui lòng kiểm tra lại !',
+            title: 'Email sending failed, please check again!',
             showConfirmButton: false,
             timer: 1000
           });

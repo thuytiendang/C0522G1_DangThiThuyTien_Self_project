@@ -4,11 +4,12 @@
     <div class="row">
       <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
         <div class="d-inline-flex align-items-center">
-          <a class="text-white pr-3" href="">Help</a>
+          <a class="text-white pr-3" href="">Support</a>
+          <span class="text-white" *ngIf="username">|</span>
+            <a class="text-white px-3" href="">{{username}}</a>
           <span class="text-white">|</span>
-          <a class="text-white px-3" href="">Support</a>
-          <span class="text-white">|</span>
-          <a class="text-white pl-3" href="">Login</a>
+          <a class="text-white pl-3" routerLink="/login" *ngIf="!username">Log in</a>
+          <a class="text-white pl-3" (click)="whenLogout()" *ngIf="username">Log out</a>
         </div>
       </div>
       <div class="col-md-6 text-center text-lg-right">
@@ -49,16 +50,16 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav ml-auto py-0">
           <a href="" class="nav-item nav-link active">Home</a>
-          <a href="" class="nav-item nav-link">About</a>
-          <a href="" class="nav-item nav-link">Product</a>
+          <a routerLink="/about" class="nav-item nav-link">About</a>
+          <a routerLink="/drink" class="nav-item nav-link">Menu</a>
         </div>
         <a href="" class="navbar-brand mx-5 d-none d-lg-block">
           <h1 class="m-0 display-4 text-primary"><span class="text-secondary">BLUE</span>COFFEE</h1>
         </a>
         <div class="navbar-nav mr-auto py-0">
           <a href="" class="nav-item nav-link">Service</a>
-          <a href="" class="nav-item nav-link">Promotion</a>
-          <a href="" class="nav-item nav-link">Cart</a>
+          <a routerLink="/promotion" class="nav-item nav-link">Promotion</a>
+          <a routerLink="/cart" class="nav-item nav-link" >Cart <sup *ngIf="countDrink > 0" style="color: red; font-size: 15px">{{countDrink}}</sup></a>
         </div>
       </div>
     </nav>

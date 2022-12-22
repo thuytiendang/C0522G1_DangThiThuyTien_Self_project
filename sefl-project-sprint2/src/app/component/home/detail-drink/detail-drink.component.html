@@ -1,0 +1,29 @@
+<div class="container-fluid py-5" >
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <h1 class="section-title position-relative text-center mb-5">Detail information</h1>
+    </div>
+  </div>
+  <div class="row ms-4 mx-4" *ngIf="content" >
+    <div class="col-sm-6">
+      <div class="card" style="border-radius: 50px; background-color: #7acfec; margin-left: 210px">
+        <div class="card-body">
+          <img  src="{{drink.image}}"
+                style=" width: 355px; height: 320px; border-radius: 40px">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <h3 class="card-title" style="color: #459ae7">{{drink.name}}</h3>
+          <p class="card-text"><span style="color: #fc68d9; font-weight: bold">Drink type: </span>{{drink.drinkTypeName}}</p>
+          <p class="card-text"style="text-decoration-line: line-through"><span style="color: #fc68d9; font-weight: bold">Price: </span> {{drink.price | number}}</p>
+          <p class="card-text"><span style="color: #fc68d9; font-weight: bold">Price: </span> {{drink.discount | number}}</p>
+          <a class="btn btn-sm btn-secondary" (click)="addToCart(drink.id)">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

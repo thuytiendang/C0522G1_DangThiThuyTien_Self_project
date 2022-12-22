@@ -1,0 +1,42 @@
+<div class="container-fluid py-5">
+  <div class="py-5" >
+    <div class="row mb-4 d-flex" style="margin-left: 65%">
+      <input class="form-control me-2 " type="search" [(ngModel)]="name" placeholder="Input a keyword"
+             aria-label="Search"
+             style="border-radius:7px;width: 200px">
+      <button class="bg-primary" type="submit" style="width: 10%;border-radius:7px" (click)="search()"><i
+        class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <h1 class="section-title position-relative text-center mb-5">Promotion</h1>
+      </div>
+    </div>
+    <h3 *ngIf="!content" class="text-danger text-center">There are currently no promotions!</h3>
+    <div class="mt-2 mx-5 d-flex row" *ngIf="content">
+      <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngFor="let pro of promotionList">
+        <ul>
+          <li class="booking-card"
+              style="background-image: url({{pro.image}})">
+            <div class="book-container">
+              <div class="content text-center wrapCss">
+                <button type="submit" class="btn btn-primary py-3 px-5">Detail</button>
+              </div>
+            </div>
+            <div class="informations-container">
+              <h2 class="title">{{pro.name}}</h2>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="content text-center wrapCss" *ngIf="numberRecord < totalRecord - 1 ">
+        <div *ngIf="content">
+          <button type="submit" class="btn btn-primary py-3 px-5 text-light" (click)="loadMore()">Load more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

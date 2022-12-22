@@ -334,7 +334,7 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #EC4969;
+  background-color: #ff7693;
   border: none;
   outline: none;
   height: 49px;
@@ -348,7 +348,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #d8143b;
+  background-color: #496fec;
 }
 .panels-container {
   position: absolute;
@@ -368,7 +368,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #EC4969 0%, #d8143b 100%);
+  background-image: linear-gradient(-45deg, #84aee5 0%, #779afc 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;

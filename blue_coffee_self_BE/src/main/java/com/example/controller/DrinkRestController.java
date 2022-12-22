@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/drink")
@@ -27,5 +29,14 @@ public class DrinkRestController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(drinkList, HttpStatus.OK);
+    }
+
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<IDrinkDto> getInfo(@PathVariable int id) {
+        Optional<IDrinkDto> drink = iDrinkService.findDrinkById(id);
+        if (drink.isPresent()) {
+            return new ResponseEntity<>(drink.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

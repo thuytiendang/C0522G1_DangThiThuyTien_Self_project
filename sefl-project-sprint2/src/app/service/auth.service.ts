@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {IUser} from '../model/i-user';
 import {JwtResponseService} from './jwt-response-service';
 
-const AUTH_API = 'http://localhost:8080/public/';
+const AUTH_API = 'http://localhost:8080/api/public/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

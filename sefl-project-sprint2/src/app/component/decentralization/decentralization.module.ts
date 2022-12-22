@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {ConfirmResetPasswordComponent} from './confirm-reset-password/confirm-reset-password.component';
 import {FocusInvalidInputDirective} from './util/focus-invalid-input.directive';
+import {SocialLoginModule} from 'angularx-social-login';
 
 
 

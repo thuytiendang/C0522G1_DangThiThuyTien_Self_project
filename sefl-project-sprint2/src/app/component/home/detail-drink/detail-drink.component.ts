@@ -1,23 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
 import {IDrinkDto} from '../../../dto/idrink-dto';
 import {DrinkService} from '../../../service/drink.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
 import {TokenStorageService} from '../../../service/token-storage.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-drink',
-  templateUrl: './drink.component.html',
-  styleUrls: ['./drink.component.css']
+  selector: 'app-detail-drink',
+  templateUrl: './detail-drink.component.html',
+  styleUrls: ['./detail-drink.component.css']
 })
-export class DrinkComponent implements OnInit {
-  totalPage = 0;
-  numberPage = 0;
-  totalRecord = 0;
-  drinkList: IDrinkDto[];
-  moreDrinkList: IDrinkDto[];
-  action: boolean;
-  nameSearch = '';
+export class DetailDrinkComponent implements OnInit {
+  drink: IDrinkDto;
+  id: number;
+  content: boolean;
   roles: string[] = [];
   isCustomer = false;
   isAdmin = false;
@@ -27,15 +24,30 @@ export class DrinkComponent implements OnInit {
   idUser: number;
 
   constructor(private drinkService: DrinkService,
+              private title: Title,
+              private activatedRoute: ActivatedRoute,
               private tokenService: TokenStorageService) {
+    this.title.setTitle('Detail information');
   }
 
   ngOnInit(): void {
-    this.getAllDrink(this.numberPage);
+    this.activatedRoute.paramMap.subscribe(value => {
+      console.log(value);
+      this.id = +Number(value.get('id'));
+      this.drinkService.getDrinkById(this.id).subscribe(pro => {
+        window.scroll(0, 0);
+        if (pro != null) {
+          this.content = true;
+          this.drink = pro;
+        } else {
+          this.content = false;
+        }
+      });
+    });
     this.showUsername();
   }
 
-  showUsername() {
+  private showUsername() {
     if (this.tokenService.isLogged()) {
       this.username = this.tokenService.getUser().username;
       this.getCustomer();
@@ -46,38 +58,11 @@ export class DrinkComponent implements OnInit {
     }
   }
 
-  getCustomer() {
+  private getCustomer() {
     this.drinkService.findAllCustomer(this.username).subscribe(value => {
       this.idUser = value.id;
       console.log(this.idUser);
     });
-  }
-
-  getAllDrink(numberA: number) {
-    this.drinkService.getAllDrink(numberA, this.nameSearch).subscribe(value => {
-      if (value != null) {
-        this.action = true;
-        this.totalRecord = value.totalElements;
-        this.totalPage = value.totalPages;
-        if (numberA > 0) {
-          this.moreDrinkList = this.drinkList;
-          this.drinkList = this.moreDrinkList.concat(value.content);
-        } else {
-          this.drinkList = value.content;
-        }
-      } else {
-        this.action = false;
-      }
-    });
-  }
-
-  loadMore() {
-    this.numberPage += 1;
-    this.getAllDrink(this.numberPage);
-  }
-
-  search() {
-    this.getAllDrink(this.numberPage);
   }
 
   addToCart(drinkId: number): void {

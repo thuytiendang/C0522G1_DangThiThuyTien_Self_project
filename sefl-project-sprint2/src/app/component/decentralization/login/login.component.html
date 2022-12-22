@@ -1,55 +1,16 @@
-<!--<section class="container-fluid">-->
-<!--  <div class="img-bg col-lg-6 col-md-6 col-sm-12 col-xs-12 " style="margin-left: 150px">-->
-<!--    <img src="https://i.pinimg.com/originals/44/8e/8b/448e8b4a366be418b5a0849cc59753f4.gif" alt=""-->
-<!--         style="border-radius: 100px; height: 80%; width: 80%; margin-top: 50px">-->
-<!--  </div>-->
-<!--  <div class="noi-dung col-lg-6 col-md-6 col-sm-12 col-xs-12" style="margin-left: 0">-->
-<!--    <div class="form">-->
-<!--      <h2>LOGIN</h2>-->
-<!--      <form action="">-->
-<!--        <div class="input-form">-->
-<!--          <span>Name</span>-->
-<!--          <input type="text" name="">-->
-<!--        </div>-->
-<!--        <div class="input-form">-->
-<!--          <span>Password</span>-->
-<!--          <input type="password" name="">-->
-<!--        </div>-->
-<!--        <div class="nho-dang-nhap">-->
-<!--          <label><input type="checkbox" name=""> Remember me!</label>-->
-<!--        </div>-->
-<!--        <div class="input-form">-->
-<!--          <input type="submit" value="Login">-->
-<!--        </div>-->
-<!--        <div class="input-form">-->
-<!--          <p>Do not have an account? <a href="#">Register</a></p>-->
-<!--        </div>-->
-<!--&lt;!&ndash;        <div class="input-form">&ndash;&gt;-->
-<!--&lt;!&ndash;          <span> or login via technology platforms</span>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="social-media">&ndash;&gt;-->
-<!--&lt;!&ndash;          <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;          <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;          <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;          <a class="btn btn-outline-secondary btn-social" href="#"><i class="fab fa-instagram"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
 <body>
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
       <form class="sign-in-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()" appFocusInvalidInput
             #focusInput="focusInvalidInput">
-        <h2 class="title">Đăng Nhập</h2>
+        <h2 class="title">Login</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
           <span class="text-danger"
                 *ngIf="formGroup.controls.username.hasError('required')
                   && formGroup.controls.username.dirty">
-            Vui lòng nhập tài khoản !</span>
+            Please enter your account!</span>
           <input formControlName="username" type="text" placeholder="Tên Đăng Nhập"/>
         </div>
         <div class="input-field">
@@ -57,11 +18,11 @@
           <span class="text-danger"
                 *ngIf="formGroup.controls.password.hasError('required')
                   && formGroup.controls.password.dirty">
-            Vui lòng nhập mật khẩu !</span>
+            Please input password!</span>
           <input formControlName="password" type="password" placeholder="Mật Khẩu"/>
         </div>
-        <input type="submit" value="Đăng nhập" class="btn solid"/>
-        <p class="social-text">Hoặc Đăng nhập bằng các nền tảng xã hội</p>
+        <input type="submit" value="sign in" class="btn solid"/>
+        <p class="social-text">Or login by other social media</p>
         <div class="social-media">
           <a href="#" class="social-icon">
             <i class="fab fa-facebook-f"></i>
@@ -78,10 +39,10 @@
         </div>
       </form>
       <form action="#" class="sign-up-form">
-        <h2 class="title">Đăng Nhập</h2>
+        <h2 class="title">Login</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Tên Đăng Nhập"/>
+          <input type="text" placeholder="Name"/>
         </div>
         <div class="input-field">
           <i class="fas fa-envelope"></i>
@@ -89,10 +50,10 @@
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Mật Khẩu"/>
+          <input type="password" placeholder="Password"/>
         </div>
         <input type="submit" class="btn" value="Đăng Ký"/>
-        <p class="social-text">Hoặc Đăng nhập bằng các nền tảng xã hội</p>
+        <p class="social-text">Or login by other social media</p>
         <div class="social-media">
           <a href="#" class="social-icon">
             <i class="fab fa-facebook-f"></i>
@@ -114,24 +75,24 @@
   <div class="panels-container">
     <div class="panel left-panel">
       <div class="content">
-        <h3>Thông BÁO</h3>
+        <h3>Notification</h3>
         <p>
-          Khách hàng nhập đúng thông tin tài khoản để truy cập, không cung cấp thông tin tài khoản cho bất kỳ ai
+          Customers enter the correct account information to access, do not provide account information to anyone
         </p>
         <button class="btn transparent" id="sign-up-btn">
-          Đăng Ký
+          Sign Up
         </button>
       </div>
       <!--      <img src="img/log.svg" class="image" alt="" />-->
     </div>
     <div class="panel right-panel">
       <div class="content">
-        <h3>Thông Báo</h3>
+        <h3>Notification</h3>
         <p>
-          Thành viên đăng ký tài khoản, vui lòng nhập đúng định dạng "Email"
+          Members register an account, please enter the correct "Email" format
         </p>
         <button class="btn transparent" id="sign-in-btn">
-          Đăng Nhập
+          Login
         </button>
       </div>
       <!--      <img src="img/register.svg" class="image" alt="" />-->

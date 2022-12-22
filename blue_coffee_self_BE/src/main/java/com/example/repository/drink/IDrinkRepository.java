@@ -8,9 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Optional;
+
 public interface IDrinkRepository extends JpaRepository<Drink, Integer> {
 
-    @Query(value = "select drink.name as name, drink.image as image, drink.price as price," +
+    @Query(value = "select drink.id as id, drink.name as name, drink.image as image, drink.price as price," +
             "drink.price * (100 - ifnull(promotion.discount, 0))/100 as discount, " +
             "drink_type.name as drinkTypeName " +
             "from drink " +
@@ -24,4 +26,14 @@ public interface IDrinkRepository extends JpaRepository<Drink, Integer> {
                     "where drink.is_delete = 0 and drink.name like %:nameSearch% " +
                     "order by drink_type.name", nativeQuery = true )
     Page<IDrinkDto> findAllDrink(Pageable pageable, @Param("nameSearch") String nameSearch);
+
+    @Query(value = "select drink.id as id, drink.name as name, drink.image as image, drink.price as price," +
+            " drink.price * (100 - ifnull(promotion.discount, 0))/100 as discount, " +
+            "drink_type.name as drinkTypeName, drink.is_delete " +
+            "from drink " +
+            "join drink_type on drink_type.id = drink.drink_type_id " +
+            "join promotion on promotion.id = drink.promotion_id " +
+            "where drink.id = :id and drink.is_delete = 0 "
+            ,nativeQuery = true)
+    Optional<IDrinkDto> findDrinkById(@Param("id") Integer id);
 }

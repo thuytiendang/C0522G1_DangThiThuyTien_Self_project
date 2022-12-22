@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: this.username + ' Đăng nhập thành công !',
+          title: this.username + ' Log in successfully !',
           showConfirmButton: false,
           timer: 2000
         });

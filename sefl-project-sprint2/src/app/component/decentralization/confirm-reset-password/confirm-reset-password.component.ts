@@ -68,7 +68,7 @@ export class ConfirmResetPasswordComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Đổi mật khẩu thành công !',
+            title: 'Change password successfully!',
             showConfirmButton: false,
             timer: 2000
           });
@@ -78,7 +78,7 @@ export class ConfirmResetPasswordComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'warning',
-            title: 'Đổi mật khẩu thất bại !',
+            title: 'Change password failed!',
             showConfirmButton: false,
             timer: 2000
           });

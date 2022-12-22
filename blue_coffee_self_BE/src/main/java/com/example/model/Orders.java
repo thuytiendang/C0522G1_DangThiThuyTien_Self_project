@@ -5,13 +5,14 @@ import com.example.model.drink.Drink;
 import javax.persistence.*;
 
 @Entity
-public class Order {
+public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private boolean isDelete;
     private Integer quantity;
+    private boolean status;
     private String datePayment;
 
     @ManyToOne
@@ -22,13 +23,15 @@ public class Order {
     @JoinColumn(name = "drink_id", referencedColumnName = "id")
     private Drink drink;
 
-    public Order() {
+    public Orders() {
     }
 
-    public Order(Integer id, boolean isDelete, Integer quantity, String datePayment, Customer customer, Drink drink) {
+    public Orders(Integer id, boolean isDelete, Integer quantity, boolean status, String datePayment, Customer customer,
+                  Drink drink) {
         this.id = id;
         this.isDelete = isDelete;
         this.quantity = quantity;
+        this.status = status;
         this.datePayment = datePayment;
         this.customer = customer;
         this.drink = drink;
@@ -80,5 +83,13 @@ public class Order {
 
     public void setDrink(Drink drink) {
         this.drink = drink;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
