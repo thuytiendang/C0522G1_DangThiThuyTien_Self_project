@@ -20,9 +20,9 @@ public interface IOrderRepository extends JpaRepository<Orders, Integer> {
     @Query(value = "update orders set quantity = :quantity where status = 0 and " +
             "customer_id = :customerId " +
             "and drink_id = :drinkId", nativeQuery = true)
-    void setQuantityLaptop(@Param("quantity") Integer quantity,
+    void setQuantityDrink(@Param("quantity") Integer quantity,
                            @Param("customerId") Integer customerId,
-                           @Param("drinkId") Integer laptopId);
+                           @Param("drinkId") Integer drinkId);
 
     @Query(value = "select orders.id as id, drink.price as price, promotion.discount as discount, " +
             "orders.quantity as quantity, drink.image as image, drink.name as nameDrink " +
@@ -51,6 +51,14 @@ public interface IOrderRepository extends JpaRepository<Orders, Integer> {
     @Transactional
     @Query(value = "update orders set is_delete = 1 where id = :id", nativeQuery = true)
     void deleteCart(@Param("id") Integer id);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "update orders set date_payment = now(), status = 1 where status = 0 and customer_id = :id",
+            nativeQuery = true)
+    void payedCart(@Param("id") Integer id);
+
 
     @Modifying
     @Transactional

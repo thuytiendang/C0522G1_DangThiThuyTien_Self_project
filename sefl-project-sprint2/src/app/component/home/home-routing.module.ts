@@ -7,6 +7,7 @@ import {DrinkComponent} from './drink/drink.component';
 import {PromotionComponent} from './promotion/promotion.component';
 import {AboutComponent} from './about/about.component';
 import {DetailDrinkComponent} from './detail-drink/detail-drink.component';
+import {CustomerInfoComponent} from './customer-info/customer-info.component';
 
 
 const routes: Routes = [
@@ -38,9 +39,10 @@ const routes: Routes = [
     },
     component: CartComponent
   },
-  // {
-  //   path: 'history', component: HistoryComponent
-  // }
+  {
+    path: 'customer',
+    component: CustomerInfoComponent
+  },
 ];
 
 @NgModule({

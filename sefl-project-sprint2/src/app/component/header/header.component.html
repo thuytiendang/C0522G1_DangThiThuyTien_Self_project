@@ -6,7 +6,7 @@
         <div class="d-inline-flex align-items-center">
           <a class="text-white pr-3" href="">Support</a>
           <span class="text-white" *ngIf="username">|</span>
-            <a class="text-white px-3" href="">{{username}}</a>
+            <a class="text-white px-3" routerLink="/customer">{{username}}</a>
           <span class="text-white">|</span>
           <a class="text-white pl-3" routerLink="/login" *ngIf="!username">Log in</a>
           <a class="text-white pl-3" (click)="whenLogout()" *ngIf="username">Log out</a>
@@ -59,7 +59,7 @@
         <div class="navbar-nav mr-auto py-0">
           <a href="" class="nav-item nav-link">Service</a>
           <a routerLink="/promotion" class="nav-item nav-link">Promotion</a>
-          <a routerLink="/cart" class="nav-item nav-link" >Cart <sup *ngIf="countDrink > 0" style="color: red; font-size: 15px">{{countDrink}}</sup></a>
+          <a routerLink="/cart" class="nav-item nav-link" >Cart <sup *ngIf="countDrink > 0" style="color: #3939fd; font-size: 15px; font-weight: bold">{{countDrink}}</sup></a>
         </div>
       </div>
     </nav>

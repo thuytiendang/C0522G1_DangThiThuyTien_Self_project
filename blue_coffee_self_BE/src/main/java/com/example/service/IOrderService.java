@@ -18,4 +18,6 @@ public interface IOrderService {
 
     Optional<IOrderDto> countDrink( Integer customerId);
 
+    void payedCart(Integer id);
+
 }

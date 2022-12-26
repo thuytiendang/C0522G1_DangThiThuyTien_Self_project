@@ -3,6 +3,8 @@ import {TokenStorageService} from '../../../service/token-storage.service';
 import {DrinkService} from '../../../service/drink.service';
 import {IOrderDto} from '../../../dto/iorder-dto';
 import Swal from 'sweetalert2';
+import {render} from 'creditcardpayments/creditCardPayments';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cart',
@@ -19,9 +21,12 @@ export class CartComponent implements OnInit {
   totalPrice = 0;
   finalPrice = 0;
   countDrink: number;
+  paypalPrice = 0;
 
   constructor(private tokenService: TokenStorageService,
-              private drinkService: DrinkService) {
+              private drinkService: DrinkService,
+              private title: Title) {
+    title.setTitle('Cart');
   }
 
   ngOnInit(): void {
@@ -40,7 +45,6 @@ export class CartComponent implements OnInit {
   }
 
   getCustomer(): void {
-
     this.drinkService.findAllCustomer(this.username).subscribe(customer => {
       this.drinkService.getCount(customer.id).subscribe(value1 => {
         this.countDrink = value1.countDrink;
@@ -52,6 +56,34 @@ export class CartComponent implements OnInit {
             this.totalPrice += item.price * item.quantity;
             this.finalPrice += item.price * (1 - item.discount / 100) * item.quantity;
           }
+
+          this.paypalPrice = Math.round(this.finalPrice / 23000 * 100) / 100;
+          render(
+            {
+              id: '#myPaypal',
+              value: '' + this.paypalPrice,
+              currency: 'USD',
+              onApprove: (details) => {
+                this.drinkService.paymentDrink(customer.id).subscribe(value1 => {
+                  const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer);
+                      toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    }
+                  });
+                  Toast.fire({
+                    icon: 'success',
+                    title: 'Payment successfully!'
+                  }).then(r => window.location.reload());
+                });
+              }
+            }
+          );
         });
       }
     });

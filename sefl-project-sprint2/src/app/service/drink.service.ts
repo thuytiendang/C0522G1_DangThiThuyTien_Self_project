@@ -56,4 +56,8 @@ export class DrinkService {
   getCount(customerId: number): Observable<any> {
     return this.http.get(this.API_URL + 'order/count-drink/' + customerId);
   }
+
+  paymentDrink(id: number): Observable<void> {
+    return this.http.get<void>(this.API_URL + 'order/payment/' + id);
+  }
 }

@@ -9,10 +9,11 @@ import {FormsModule} from '@angular/forms';
 import { PromotionComponent } from './promotion/promotion.component';
 import { AboutComponent } from './about/about.component';
 import { DetailDrinkComponent } from './detail-drink/detail-drink.component';
+import { CustomerInfoComponent } from './customer-info/customer-info.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, CartComponent, DrinkComponent, PromotionComponent, AboutComponent, DetailDrinkComponent],
+  declarations: [HomeComponent, CartComponent, DrinkComponent, PromotionComponent, AboutComponent, DetailDrinkComponent, CustomerInfoComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

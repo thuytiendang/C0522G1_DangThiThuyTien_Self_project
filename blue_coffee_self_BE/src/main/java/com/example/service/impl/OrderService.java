@@ -24,7 +24,7 @@ public class OrderService implements IOrderService {
     public void addOrder(Integer quantity, Integer customerId, Integer drinkId) {
         Optional<Orders> orders = iOrderRepository.getOderCart(customerId, drinkId);
         if (orders.isPresent()) {
-            iOrderRepository.setQuantityLaptop(orders.get().getQuantity() + quantity, customerId, drinkId);
+            iOrderRepository.setQuantityDrink(orders.get().getQuantity() + quantity, customerId, drinkId);
         } else {
             iOrderRepository.addOrder(quantity, customerId, drinkId);
         }
@@ -48,5 +48,10 @@ public class OrderService implements IOrderService {
     @Override
     public Optional<IOrderDto> countDrink(Integer customerId) {
         return iOrderRepository.countDrink(customerId);
+    }
+
+    @Override
+    public void payedCart(Integer id) {
+        iOrderRepository.payedCart(id);
     }
 }

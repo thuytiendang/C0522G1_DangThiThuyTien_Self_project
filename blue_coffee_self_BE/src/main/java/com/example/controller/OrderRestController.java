@@ -74,4 +74,9 @@ public class OrderRestController {
         }
     }
 
+    @GetMapping("/payment/{customerId}")
+    public ResponseEntity<Orders> paymentDrink(@PathVariable("customerId") Integer customerId) {
+        iOrderService.payedCart(customerId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
