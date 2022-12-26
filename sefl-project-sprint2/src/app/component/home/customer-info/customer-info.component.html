@@ -10,39 +10,32 @@
       <div class="row">
         <div class="col-lg-4 col-md-4">
           <div class="row px-3">
-            <img [src]="customer.image" alt="" class="img-fluid" style="border: 1px solid lightgray;
+            <img src="https://smilemedia.vn/wp-content/uploads/2022/09/cach-chup-anh-the-dep-e1664379835782.jpg" alt="" class="img-fluid" style="border: 1px solid lightgray;
                    box-shadow:15px 15px 15px lightblue">
           </div>
         </div>
 
         <div class="col-lg-8 col-md-8">
           <div class="checkout__order" style="border: 1px solid lightgray">
-            <h4>{{customer.name | titlecase}}</h4>
-            <div class="checkout__order__products">Thông tin: <span>...</span></div>
-            <ul>
-              <li>Ngày sinh: <span>{{customer.dayOfBirth | date: "dd/MM/yyyy"}}</span></li>
-
-              <li *ngIf="customer.gender === 0">Giới tính: <span>Nam</span></li>
-              <li *ngIf="customer.gender === 1">Giới tính: <span>Nữ</span></li>
-              <li *ngIf="customer.gender === 2">Giới tính: <span>LGBT</span></li>
-
-              <li>CMND/CCCD: <span>{{customer.idCard}}</span></li>
-              <li>Email: <span>{{customer.email}}</span></li>
-              <li>Số điện thoại: <span>{{customer.phoneNumber}}</span></li>
-              <li>Địa chỉ: <span>{{customer.address}}</span></li>
-            </ul>
-            <div class="checkout__order__subtotal">Tài khoản: <span
+            <h4 style="color: #4d6eef; font-weight: bolder">{{customer.name | titlecase}}</h4>
+            <div class="checkout__order__products" style="font-weight: bolder">Information: <span>...</span></div>
+            <p class="mt-1">Date of birth: <span>{{customer.dayOfBirth | date: "dd/MM/yyyy"}}</span></p>
+            <p *ngIf="customer.gender === 0">Gender: <span>Male</span></p>
+            <p *ngIf="customer.gender === 1">Gender: <span>Female</span></p>
+            <p *ngIf="customer.gender === 2">Gender: <span>LGBT</span></p>
+            <p>CMND/CCCD: <span>{{customer.idCard}}</span></p>
+            <p>Email: <span>{{customer.email}}</span></p>
+            <p>Phone number: <span>{{customer.phoneNumber}}</span></p>
+            <p>Address: <span>{{customer.address}}</span></p>
+            <div class="checkout__order__subtotal">Account: <span
               class="text-danger">{{customer.user.username}}</span></div>
-            <!-- <div class="checkout__order__total">Tài khoản: <span>{{customer.user.username}}</span></div>-->
-            <div class="checkout__order__products">Trạng thái: <span>...</span></div>
-            <div class="checkout__input__checkbox">
-              Tâm sự tuổi 30?
+            <div class="checkout__order__products mt-1" style="font-weight: bolder">Status: <span>...</span></div>
+            <p>They say as long as at least one person cares for you, life isn’t a waste. So when things go terribly
+              wrong, and you feel like giving up, please remember you still got me. –
+              <strong>TienCute</strong></p>
+            <div class="col-12 ">
+              <a class="btn btn-primary py-3 px-5" style="font-size: 1em;">Set account</a>
             </div>
-            <p>Vết thương không lành theo cách chúng ta muốn, chúng lành theo cách chúng cần. Cần có thời gian để vết
-              thương mờ dần thành sẹo. Cần có thời gian để quá trình chữa bệnh diễn ra. Hãy cho bản thân thời gian đó.
-              Hãy nhẹ nhàng với vết thương của bạn. Hãy nhẹ nhàng với trái tim của bạn. Bạn xứng đáng được chữa lành. –
-              <strong>The Last Shinobi ⚡</strong></p>
-            <button class="site-btn" STYLE="cursor: progress">CHỈNH SỬA TÀI KHOẢN</button>
           </div>
         </div>
       </div>
