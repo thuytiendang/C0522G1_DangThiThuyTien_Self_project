@@ -10,10 +10,11 @@ import { PromotionComponent } from './promotion/promotion.component';
 import { AboutComponent } from './about/about.component';
 import { DetailDrinkComponent } from './detail-drink/detail-drink.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, CartComponent, DrinkComponent, PromotionComponent, AboutComponent, DetailDrinkComponent, CustomerInfoComponent],
+  declarations: [HomeComponent, CartComponent, DrinkComponent, PromotionComponent, AboutComponent, DetailDrinkComponent, CustomerInfoComponent, HistoryComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

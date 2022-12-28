@@ -5,6 +5,8 @@ import com.example.model.Orders;
 import com.example.repository.IOrderRepository;
 import com.example.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -53,5 +55,10 @@ public class OrderService implements IOrderService {
     @Override
     public void payedCart(Integer id) {
         iOrderRepository.payedCart(id);
+    }
+
+    @Override
+    public Page<IOrderDto> findHistoryByUser(Integer id, Pageable pageable) {
+        return iOrderRepository.findHistoryByUser(id, pageable);
     }
 }

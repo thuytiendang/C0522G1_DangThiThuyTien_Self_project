@@ -60,4 +60,9 @@ export class DrinkService {
   paymentDrink(id: number): Observable<void> {
     return this.http.get<void>(this.API_URL + 'order/payment/' + id);
   }
+
+  showHistory(curPage: number, numberRecord: number, id: number): Observable<DataResult<IOrderDto>> {
+    return this.http.get<DataResult<IOrderDto>>(this.API_URL + 'order/history/' + id
+      + '?page=' + (curPage - 1) + '&size=' + numberRecord);
+  }
 }

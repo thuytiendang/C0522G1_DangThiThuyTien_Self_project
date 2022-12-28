@@ -8,6 +8,7 @@ import {PromotionComponent} from './promotion/promotion.component';
 import {AboutComponent} from './about/about.component';
 import {DetailDrinkComponent} from './detail-drink/detail-drink.component';
 import {CustomerInfoComponent} from './customer-info/customer-info.component';
+import {HistoryComponent} from './history/history.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,14 @@ const routes: Routes = [
   {
     path: 'customer',
     component: CustomerInfoComponent
+  },
+  {
+    path: 'history',
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_CUSTOMER']
+    },
+    component: HistoryComponent
   },
 ];
 

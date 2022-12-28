@@ -9,7 +9,7 @@
             <a class="text-white px-3" routerLink="/customer">{{username}}</a>
           <span class="text-white">|</span>
           <a class="text-white pl-3" routerLink="/login" *ngIf="!username">Log in</a>
-          <a class="text-white pl-3" (click)="whenLogout()" *ngIf="username">Log out</a>
+          <a class="text-white pl-3" href="" (click)="whenLogout()" *ngIf="username">Log out</a>
         </div>
       </div>
       <div class="col-md-6 text-center text-lg-right">
@@ -57,7 +57,7 @@
           <h1 class="m-0 display-4 text-primary"><span class="text-secondary">BLUE</span>COFFEE</h1>
         </a>
         <div class="navbar-nav mr-auto py-0">
-          <a href="" class="nav-item nav-link">Service</a>
+          <a routerLink="/history" class="nav-item nav-link">History</a>
           <a routerLink="/promotion" class="nav-item nav-link">Promotion</a>
           <a routerLink="/cart" class="nav-item nav-link" >Cart <sup *ngIf="countDrink > 0" style="color: #3939fd; font-size: 15px; font-weight: bold">{{countDrink}}</sup></a>
         </div>

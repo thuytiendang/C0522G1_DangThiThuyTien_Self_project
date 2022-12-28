@@ -4,6 +4,7 @@ import {IDrinkDto} from '../../../dto/idrink-dto';
 import {DrinkService} from '../../../service/drink.service';
 import {TokenStorageService} from '../../../service/token-storage.service';
 import Swal from 'sweetalert2';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-drink',
@@ -27,7 +28,9 @@ export class DrinkComponent implements OnInit {
   idUser: number;
 
   constructor(private drinkService: DrinkService,
-              private tokenService: TokenStorageService) {
+              private tokenService: TokenStorageService,
+              private title: Title) {
+    title.setTitle('Menu');
   }
 
   ngOnInit(): void {

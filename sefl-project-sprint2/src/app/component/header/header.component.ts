@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../service/token-storage.service';
 import Swal from 'sweetalert2';
 import {DrinkService} from '../../service/drink.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
   countDrink: number;
 
   constructor(private tokenService: TokenStorageService,
-              private drinkService: DrinkService) {
+              private drinkService: DrinkService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -44,6 +46,7 @@ export class HeaderComponent implements OnInit {
       timer: 1000
     });
     this.tokenService.logOut();
+    this.router.navigateByUrl('');
     window.scroll(0, 0);
     this.username = '';
     this.isCustomer = false;

@@ -2,6 +2,8 @@ package com.example.repository;
 
 import com.example.dto.IOrderDto;
 import com.example.model.Orders;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -74,4 +76,21 @@ public interface IOrderRepository extends JpaRepository<Orders, Integer> {
     @Query(value = "select count(id) as countDrink from orders where orders.customer_id = :customerId " +
             "and orders.is_delete = 0 and status = 0", nativeQuery = true)
     Optional<IOrderDto> countDrink(@Param("customerId") Integer customerId);
+
+    @Query(value = "select orders.id as id, drink.price as price, promotion.discount as discount, " +
+            "orders.quantity as quantity, orders.date_payment as datePayment, drink.image as image, drink.name as nameDrink " +
+            "from orders " +
+            "join customer on customer.id = orders.customer_id " +
+            "join drink on drink.id = orders.drink_id " +
+            "join promotion on promotion.id = drink.promotion_id " +
+            "where orders.is_delete = 0 and orders.status = 1 and orders.quantity > 0 " +
+            "and orders.customer_id = :id order by orders.date_payment desc ",
+            countQuery = "select count(*) " +
+                    "from orders " +
+                    "join customer on customer.id = orders.customer_id " +
+                    "join drink on drink.id = orders.drink_id " +
+                    "join promotion on promotion.id = drink.promotion_id " +
+                    "where orders.is_delete = 0 and orders.status = 1 and orders.quantity > 0 " +
+                    "and orders.customer_id = :id order by orders.date_payment desc",nativeQuery = true)
+    Page<IOrderDto> findHistoryByUser(@Param("id") Integer id, Pageable pageable);
 }

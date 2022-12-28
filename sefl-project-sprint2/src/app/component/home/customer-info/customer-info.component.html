@@ -16,24 +16,24 @@
         </div>
 
         <div class="col-lg-8 col-md-8">
-          <div class="checkout__order" style="border: 1px solid lightgray">
+          <div class="checkout__order" style="border: 1px solid lightgray; margin-left: 10px">
             <h4 style="color: #4d6eef; font-weight: bolder">{{customer.name | titlecase}}</h4>
             <div class="checkout__order__products" style="font-weight: bolder">Information: <span>...</span></div>
-            <p class="mt-1">Date of birth: <span>{{customer.dayOfBirth | date: "dd/MM/yyyy"}}</span></p>
-            <p *ngIf="customer.gender === 0">Gender: <span>Male</span></p>
-            <p *ngIf="customer.gender === 1">Gender: <span>Female</span></p>
-            <p *ngIf="customer.gender === 2">Gender: <span>LGBT</span></p>
-            <p>CMND/CCCD: <span>{{customer.idCard}}</span></p>
-            <p>Email: <span>{{customer.email}}</span></p>
-            <p>Phone number: <span>{{customer.phoneNumber}}</span></p>
-            <p>Address: <span>{{customer.address}}</span></p>
-            <div class="checkout__order__subtotal">Account: <span
+            <p class="mt-1 mx-2">Date of birth: <span>{{customer.dayOfBirth | date: "dd/MM/yyyy"}}</span></p>
+            <p class="mx-2" *ngIf="customer.gender === 0">Gender: <span>Male</span></p>
+            <p class="mx-2" *ngIf="customer.gender === 1">Gender: <span>Female</span></p>
+            <p class="mx-2" *ngIf="customer.gender === 2">Gender: <span>LGBT</span></p>
+            <p class="mx-2">CMND/CCCD: <span>{{customer.idCard}}</span></p>
+            <p class="mx-2">Email: <span>{{customer.email}}</span></p>
+            <p class="mx-2">Phone number: <span>{{customer.phoneNumber}}</span></p>
+            <p class="mx-2">Address: <span>{{customer.address}}</span></p>
+            <div class="checkout__order__subtotal mx-2">Account: <span
               class="text-danger">{{customer.user.username}}</span></div>
             <div class="checkout__order__products mt-1" style="font-weight: bolder">Status: <span>...</span></div>
-            <p>They say as long as at least one person cares for you, life isn’t a waste. So when things go terribly
+            <p class="mx-2">They say as long as at least one person cares for you, life isn’t a waste. So when things go terribly
               wrong, and you feel like giving up, please remember you still got me. –
               <strong>TienCute</strong></p>
-            <div class="col-12 ">
+            <div class="col-12 mb-2">
               <a class="btn btn-primary py-3 px-5" style="font-size: 1em;">Set account</a>
             </div>
           </div>

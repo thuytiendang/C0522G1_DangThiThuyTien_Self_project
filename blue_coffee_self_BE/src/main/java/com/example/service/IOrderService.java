@@ -1,6 +1,8 @@
 package com.example.service;
 
 import com.example.dto.IOrderDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,4 +22,5 @@ public interface IOrderService {
 
     void payedCart(Integer id);
 
+    Page<IOrderDto> findHistoryByUser(Integer id, Pageable pageable);
 }
